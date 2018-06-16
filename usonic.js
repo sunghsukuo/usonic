@@ -5,9 +5,12 @@ usonic.init(function (error) {
                     console.log(error);
                 } else {
                     var sensor = usonic.createSensor(24, 23, 750);
-                    console.log(sensor());
+                    setInterval(getDistance, 1000);
                 }
             }
 );
 
 
+function getDistance() {
+    return sensor();
+}
