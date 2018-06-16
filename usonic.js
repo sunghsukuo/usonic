@@ -14,7 +14,7 @@ usonic.init(function (error) {
 
 function getDistance() {
     if (sensor != undefined) {
-        return sensor();
+        console.log(sensor());
     }
     else {
         console.log("sensor undefined!");
