@@ -1,10 +1,11 @@
 let usonic = require('mmm-usonic');
+let sensor;
 
 usonic.init(function (error) {
                 if (error) {
                     console.log(error);
                 } else {
-                    var sensor = usonic.createSensor(24, 23, 750);
+                    sensor = usonic.createSensor(24, 23, 750);
                     setInterval(getDistance, 1000);
                 }
             }
@@ -12,5 +13,10 @@ usonic.init(function (error) {
 
 
 function getDistance() {
-    return sensor();
+    if (sensor != undefined) {
+        return sensor();
+    }
+    else {
+        console.log("sensor undefined!");
+    }
 }
